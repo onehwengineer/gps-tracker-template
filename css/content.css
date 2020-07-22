@@ -1,0 +1,115 @@
+
+/* Showcase */
+.showcase {
+  width: 100%;
+  /* Global css vars are carried over from navbar.css */
+  /* It means that the order of calling css matters */
+  height: calc( (100vh - var(--nav-height) - var(--footer-height) - var(--margin-top) * 3) * 2/3 );
+  background: url('/img/showcase.jpg') no-repeat center center/cover;
+  display: flex; /* Makes all items under .showcase (h1, p, a) align in ONE ROW */
+  flex-direction: column; /* Override previous line, makes it align in ONE COLUMN */
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start; /* Makes flex alignment to TOP edge (vs flex-bottom or center) */
+  padding-top: 100px; /* Adds some margin from TOP of flex alignment */
+  margin-top: var(--margin-top);
+}
+  
+.showcase h1, .showcase p {
+  margin-bottom: 10px; /* Make some spacing among texts */
+}
+.showcase h1{
+  font-size: 2rem;
+}
+.showcase p{
+  width: 75%;
+  font-size: 1rem;
+}
+
+.showcase .btn {
+  margin-top: 20px;
+}
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  border-radius: 40px;
+  font-weight: bold;
+  padding: 10px 20px;
+  background: #FC662C;
+  color: #fff;
+  font-size: 1rem;
+}
+.btn:hover {
+  opacity: 1.0;
+}
+
+
+/* Card */  
+.card {
+  position: relative; 
+  /* Relative is needed here since background img will use absolute positioning with respect to .card */
+  width: 100%;
+  height: calc( (100vh - var(--nav-height) - var(--footer-height) - var(--margin-top) * 3) * 1/3 );
+  margin-top: var(--margin-top);
+  display: flex; /* Makes all items under .card (h2, p, a) align in ONE ROW */
+  flex-direction: column; /* Override previous line, makes it align in ONE COLUMN */
+  align-items: center;
+  text-align: center;
+  justify-content: center; 
+}
+.card:before { /* Needed to adjust background image opacity w/o affecting text opacity */
+  z-index:-1;
+  content : "";
+  display: block;
+  position:absolute; /* This is very important */
+  left:0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  background: url('/img/card.jpg') no-repeat center center/cover;
+  opacity:0.3;
+}
+
+.card h2, .card p {
+  margin-bottom: 10px;
+}
+.card h2{
+  font-size: 1.5rem;
+}
+.card p{
+  font-size: 1rem;
+}
+
+
+/* For smaller screens */
+@media(max-width: 700px) {
+  
+  /* Showcase */
+  .showcase {
+    padding-top: 50px;
+  }
+
+  .showcase h1{
+    font-size: 1.5rem;
+  }
+  .showcase p{
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;;
+  }
+
+  
+  /* Card */ 
+  .card h2{
+    font-size: 1.2rem;
+  }
+  .card p{
+    width: 75%;
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,100 @@
+html, body, #main, #map {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+.info {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 100;
+  width: 300px;
+  background: transparent;
+}
+
+.info .panel-body { 
+  background: transparent;
+}
+
+#request {
+  position: relative;
+  background: #FC662C none repeat scroll 0 0;
+  color: #fff;
+  border-color: #000;
+  border-radius: 5px;
+  text-align: center;
+  width: 135px;
+  font-size: 1.5rem;
+}
+
+#request:disabled {
+  color: #999;
+  border-color: #999;
+}
+
+#accountLink {
+  background: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+
+#updates {
+  list-style: none;
+  margin-top: 5px;
+  padding: 0;
+}
+
+#updates li {
+  margin: 3px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  padding: 5px;
+}
+
+.dropdown-menu {
+  cursor: pointer;
+  outline: none;
+  border: none; /* Removes default border from input box */
+}
+.dropdown-menu li {
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: #ccc solid 1px;
+}
+.dropdown-menu li:last-child {
+  border-bottom: 0; /* Removes underline from the LAST LI ITEM */
+}
+.dropdown-menu li:hover {
+  border-bottom: 2px solid #262626;
+}
+
+.authToken {
+  word-wrap: break-word;
+  width: 100%;
+}
+
+
+
+
+@media(max-width: 700px) {
+  .info {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #request {
+    width: 40%;
+  }
+
+  .dropdown {
+    width: 40%;
+    text-align: center;
+  }
+}

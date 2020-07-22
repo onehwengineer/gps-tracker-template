@@ -1,0 +1,132 @@
+:root {
+  --margin-top:10px;
+  --nav-height: 60px;
+  --footer-height: 100px;
+}
+
+
+/* Reset for elements */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff;
+  color: #000;
+  font-size: 1rem; /*15px;*/
+  line-height: 1.5;
+}
+  
+
+/* Links */ 
+a {
+  color: #262626;
+  text-decoration: none; /* Remove default underlines from links */
+}
+
+ul {
+  list-style: none; /* Remove bullets from ul */
+}
+  
+
+.main-nav, .container {
+  /* Takes up 90% of space UNTIL 1100px, margin:auto centers it */
+  width: 90%;
+  max-width: 1100px;
+  margin: auto; 
+}
+  
+
+/* NavBar */
+.main-nav {
+  display: flex; /* All items under .main-nav align in ONE ROW - img, ul, ul */
+  /* NOT li items, yet */
+  align-items: center;
+  justify-content: space-between; /* Creates equal space among img, ul, ul */
+  height: var(--nav-height); /* This is syntax to use global css var */
+  padding: 20px 0;
+  font-size: 0.8rem;
+}
+  
+.main-nav .logo {
+  width: 50px; /* resize logo img here */
+  height: 50px; /* resize logo img here */
+  display: flex; /* Makes logo align in ONE ROW; here, it's used to center vertically */
+}
+
+.main-nav ul {
+  display: flex; /* Makes all li items under (.main-nav ul) align in ONE ROW */
+}
+
+.main-nav ul li {
+  padding: 0 10px; /* Adds some space in between li items */
+}
+.main-nav ul li a:hover {
+  border-bottom: 2px solid #262626; /* Underline shown when hovering */
+}
+.main-nav ul li a {
+  /* Adds little margin for underline (when hovering) */
+  padding-bottom: 2px;
+}
+
+.main-nav ul.main-menu {
+  flex: 1; /* Moves 1st ul to the right edge of img (logo) */
+  margin-left: 30px; /* Adds some margin from the right edge of logo */
+}
+
+
+/* Hamburger menu button */  
+.menu-btn {
+  cursor: pointer;
+  position: absolute; /* THIS MAKES IT GO OUT OF FLOW - fixes to TOP */
+  top: 15px;
+  right: 30px;
+  z-index: 2; /* Always on top */
+  display: none; /* Large screen -> do not show; we will make it show for smaller screen below */
+}
+
+
+/* For smaller screens */
+@media(max-width: 700px) {
+
+  .menu-btn {
+    display: block; /* SHOW Hamburger menu button for smaller screens */
+  }
+
+  .main-nav ul.right-menu { /* Corresponding to icons (magnifying glass, login) */
+    margin-right: 50px; /* Make extra space between lgin icon and hamburger menu */
+  }
+
+  .main-nav ul.main-menu { /* This is the dropdown menu that shows when hamburger is clicked */
+    display: block;
+    position: absolute; /* take it out of relative flow */
+    top:0;
+    left: 0;
+    background: #f2f2f2;
+    width: 50%;
+    height: 100%;
+    border-right: #ccc 1px solid;
+    opacity: 0.9;
+    padding: 30px;
+    transform: translateX(-500px); /* By default, hide it, by moving left and out of screen */
+    transition: transform 0.5s ease-in-out;
+  }
+  .main-nav ul.main-menu.show { /* Show dropdown menu when clicking hamburger */ 
+    transform: translateX(-30px); /* Slide in towards the screen from left */
+  }
+
+  .main-nav ul.main-menu li { /* Make underlines for each li items */
+    padding: 10px;
+    border-bottom: #ccc solid 1px;
+    font-size: 1rem;
+  }
+  .main-nav ul.main-menu li:last-child {
+    border-bottom: 0; /* Removes underline from the LAST LI ITEM */
+  }
+  .main-nav ul.main-menu li a:hover {
+    border-bottom: 2px solid #262626;
+  }
+}
